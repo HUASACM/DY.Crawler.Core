@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DY.Crawler.Core.Domains;
 using DY.Crawler.Domains.interfaces;
 
 namespace DY.Crawler.Domains
@@ -11,12 +12,7 @@ namespace DY.Crawler.Domains
     {
         public virtual Guid Identifier { get; set; }
         public virtual string Name { get; set; }
-        public virtual string Value { get; protected set; }
-        public virtual ResourceFieldDef FieldDef { get; protected set; }
-
-        public virtual void field_def(ResourceFieldDef def)
-        {
-            FieldDef = def;
-        }
+        public virtual string Value { get; set; }
+        public virtual ResourceFieldDef FieldDef { get; set; }
     }
 }

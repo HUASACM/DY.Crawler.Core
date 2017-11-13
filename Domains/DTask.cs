@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DY.Crawler.Core.Domains;
 using DY.Crawler.Domains.Enums;
 using DY.Crawler.Domains.interfaces;
 using DY.Crawler.Domains.Interfaces;
@@ -11,6 +12,13 @@ namespace DY.Crawler.Domains
 {
     public class DTask : Aggregate, Nameable, Taskable, Recordable, Projectable, Phaseable
     {
+        public DTask()
+        {
+            resultdefs = new List<ResourceFieldDef>();
+            results = new List<ResourceInfo>();
+            sources = new List<ResourceInfo>();    
+        }
+
         private IList<ResourceFieldDef> resultdefs { get; set; }
         private IList<ResourceInfo> results { get; set; }
         private IList<ResourceInfo> sources { get; set; }

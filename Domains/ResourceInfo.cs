@@ -11,6 +11,11 @@ namespace DY.Crawler.Domains
 {
     public class ResourceInfo : Aggregate, Nameable, Taskable, Recordable, Phaseable
     {
+        public ResourceInfo()
+        {
+            fields = new List<CustomField>();   
+        }
+
         private IList<CustomField> fields;
         public virtual Guid Identifier { get; set; }
         public virtual string Name { get; set; }

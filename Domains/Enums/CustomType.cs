@@ -2,6 +2,7 @@
 {
     public enum CustomType
     {
-        Data
+        Data,
+        MultiOptions,
     }
 }

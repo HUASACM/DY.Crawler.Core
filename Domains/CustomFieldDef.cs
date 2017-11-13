@@ -13,7 +13,7 @@ namespace DY.Crawler.Domains
         private IList<CustomCode> options;
         public virtual Guid Identifier { get; set; }
         public virtual string Name { get; set; }
-        public virtual CustomType Type { get; }
+        public virtual CustomType Type { get; set; }
         public virtual int MaxValue { get; }
         public virtual int MinValue { get; }
         public virtual int Length { get; }
