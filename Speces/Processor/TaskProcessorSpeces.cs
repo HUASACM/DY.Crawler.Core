@@ -21,6 +21,7 @@ namespace DY.Crawler.Core.Speces.Processor
                 task = new DTask();
                 task.def(自定义任务字段.笔下文学书名);
                 task.def(自定义任务字段.笔下文学作者名);
+                task.def(自定义任务字段.笔下文学链接);
                 task.source(source_info);
             };
 

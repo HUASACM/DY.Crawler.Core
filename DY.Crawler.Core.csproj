@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\Core\Processors\TaskProcessor.cs" />
+    <Compile Include="Domains\DTOs\ResourceFieldDTO.cs" />
     <Compile Include="Domains\DUrlTemplate.cs" />
     <Compile Include="Domains\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Domains\TemplateDataBag.cs" />

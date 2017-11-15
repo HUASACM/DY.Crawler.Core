@@ -8,7 +8,7 @@ namespace DY.Crawler.Core.Domains
     public class ResourceFieldDef
     {
         public virtual CustomFieldDef FieldDef { get; set; }
+        public virtual string AttributeName { get; set; }
         public virtual ParseRule Rule { get; set; }
-        public virtual HtmlNodeCollection Nodes { get; set; }
     }
 }
