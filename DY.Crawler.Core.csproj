@@ -54,6 +54,11 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Core\Command\TaskProcessorCommand.cs" />
+    <Compile Include="Application\Core\DataAnalysis\DocumentNodeAnalysis.cs" />
+    <Compile Include="Application\Core\DataAnalysis\ResourceFieldDefAnalysis.cs" />
+    <Compile Include="Application\Core\DataAnalysis\ResourceFieldDTOAnalysis.cs" />
+    <Compile Include="Application\Core\DataAnalysis\ResourceFieldDTOToInfoAnalysis.cs" />
     <Compile Include="Application\Core\Processors\TaskProcessor.cs" />
     <Compile Include="Domains\DTOs\ResourceFieldDTO.cs" />
     <Compile Include="Domains\DUrlTemplate.cs" />
@@ -86,6 +91,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

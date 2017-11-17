@@ -15,5 +15,10 @@ namespace DY.Crawler.Core.Domains.Extensions
                 action(item);
             }
         }
+
+        public static IEnumerable<int> to(this int start, int end)
+        {
+            for (int i = start; i <= end; i++) yield return i;
+        }
     }
 }
