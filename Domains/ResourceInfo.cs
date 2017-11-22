@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using DY.Crawler.Domains.Enums;
@@ -35,9 +36,10 @@ namespace DY.Crawler.Domains
             TaskIdentifier = task_identifier;
         }
 
-        public virtual void field(CustomField field)
+        public virtual ResourceInfo field(CustomField field)
         {
             fields.Add(field);
+            return this;
         }
     }
 }

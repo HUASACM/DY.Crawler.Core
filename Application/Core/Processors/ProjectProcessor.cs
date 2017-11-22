@@ -20,6 +20,7 @@ namespace DY.Crawler.Core.Application.Core.Processors
         {
             if (project.UrlTemplate.empty()) return;
             var tasks = project.UrlTemplate.generate();
+            tasks.each(x => project.task(x));
         }
     }
 }

@@ -13,6 +13,10 @@ namespace DY.Crawler.Domains
 {
     public class DProject : Aggregate, Nameable, Recordable, Phaseable
     {
+        public DProject()
+        {
+            tasks = new List<DTask>();
+        }
         private IList<DTask> tasks { get; set; }
         public virtual Guid Identifier { get; set; }
         public virtual string Name { get; set; }

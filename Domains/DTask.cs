@@ -8,6 +8,7 @@ using DY.Crawler.Core.Domains.Extensions;
 using DY.Crawler.Domains.Enums;
 using DY.Crawler.Domains.interfaces;
 using DY.Crawler.Domains.Interfaces;
+using Machine.Specifications.Sdk;
 
 namespace DY.Crawler.Domains
 {
@@ -47,21 +48,24 @@ namespace DY.Crawler.Domains
             get { return results; }
         }
 
-        public virtual void source(ResourceInfo info)
+        public virtual DTask source(ResourceInfo info)
         {
             info.task_by(Identifier);
             sources.Add(info);
+            return this;
         }
 
-        public virtual void result(ResourceInfo info)
+        public virtual DTask result(ResourceInfo info)
         {
             info.task_by(Identifier);
             results.Add(info);
+            return this;
         }
 
-        public virtual void def(ResourceFieldDef def)
+        public virtual DTask def(ResourceFieldDef def)
         {
             resultdefs.Add(def);
+            return this;
         }
 
         public virtual void task_by(Guid task_identifier)
@@ -74,9 +78,10 @@ namespace DY.Crawler.Domains
             ProjectIdentifier = project_identifier;
         }
 
-        public void add_result_range(IEnumerable<ResourceInfo> list)
+        public DTask add_result_range(IEnumerable<ResourceInfo> list)
         {
             list.each(results.Add);
+            return this;
         }
     }
 }

@@ -59,9 +59,11 @@
     <Compile Include="Application\Core\DataAnalysis\ResourceFieldDefAnalysis.cs" />
     <Compile Include="Application\Core\DataAnalysis\ResourceFieldDTOAnalysis.cs" />
     <Compile Include="Application\Core\DataAnalysis\ResourceFieldDTOToInfoAnalysis.cs" />
+    <Compile Include="Application\Core\Processors\ProjectProcessor.cs" />
     <Compile Include="Application\Core\Processors\TaskProcessor.cs" />
     <Compile Include="Domains\DTOs\ResourceFieldDTO.cs" />
     <Compile Include="Domains\DUrlTemplate.cs" />
+    <Compile Include="Domains\Extensions\DUrlTemplateExtensions.cs" />
     <Compile Include="Domains\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Domains\Extensions\ResourceInfoExtensions.cs" />
     <Compile Include="Domains\Extensions\StringExtensions.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Domains\ResourceFieldDef.cs" />
     <Compile Include="Domains\ResourceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Speces\Processor\ProjectProcessorSpeces.cs" />
     <Compile Include="Speces\Processor\TaskProcessorSpeces.cs" />
     <Compile Include="Speces\基本数据.cs" />
   </ItemGroup>
