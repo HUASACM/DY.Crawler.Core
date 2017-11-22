@@ -6,4 +6,9 @@ namespace DY.Crawler.Core.Application.Core.Command
     {
         void run(DTask task);
     }
+
+    public interface ProjectProcessorCommand
+    {
+        void run(DProject project);
+    }
 }
