@@ -25,21 +25,12 @@ namespace DY.Crawler.Core.Application.Core.Processors
         }
         public void run(DTask task)
         {
-            foreach (var resource_info in task.Sources)
-            {
-                var url = resource_info.Fields.First(x => x.Name == "Url").Value;
-                var content = client.GetStringAsync(url).Result;
+            var fields = task
+                .Sources
+                .Select(x => x.get_content(client))
+                .SelectMany(x => x.load(task.ResultDefs));
 
-                var fields = parse_by(content, task.ResultDefs);
-                fields.each(x => task.result(x));
-            }
+            task.add_result_range(fields);
         }
-
-        private IEnumerable<ResourceInfo> parse_by(string content, IEnumerable<ResourceFieldDef> defs)
-         {
-             var dtos = new ResourceFieldDefAnalysis().on(content).parse(defs);
-             var min_fields = dtos.Min(x => x.Nodes.Count);
-             return new ResourceFieldDTOAnalysis().on(min_fields).parse(dtos);
-         }
     }
 }

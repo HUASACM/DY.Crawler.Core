@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DY.Crawler.Core.Domains;
+using DY.Crawler.Core.Domains.Extensions;
 using DY.Crawler.Domains.Enums;
 using DY.Crawler.Domains.interfaces;
 using DY.Crawler.Domains.Interfaces;
@@ -71,6 +72,11 @@ namespace DY.Crawler.Domains
         public virtual void project_by(Guid project_identifier)
         {
             ProjectIdentifier = project_identifier;
+        }
+
+        public void add_result_range(IEnumerable<ResourceInfo> list)
+        {
+            list.each(results.Add);
         }
     }
 }
