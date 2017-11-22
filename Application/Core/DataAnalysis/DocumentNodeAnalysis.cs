@@ -35,7 +35,7 @@ namespace DY.Crawler.Core.Application.Core.DataAnalysis
                    {
                        FieldDef = data.Def,
                        Value = attribute_value,
-                       Name = data.Def.FieldDef.Name,
+                       Name = data.Def.Name,
                    };
         }
     }

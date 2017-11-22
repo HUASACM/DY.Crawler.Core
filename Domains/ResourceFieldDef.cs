@@ -5,10 +5,10 @@ using HtmlAgilityPack;
 
 namespace DY.Crawler.Core.Domains
 {
-    public class ResourceFieldDef
+    public class ResourceFieldDef : Nameable
     {
-        public virtual CustomFieldDef FieldDef { get; set; }
         public virtual string AttributeName { get; set; }
         public virtual ParseRule Rule { get; set; }
+        public string Name { get; set; }
     }
 }
