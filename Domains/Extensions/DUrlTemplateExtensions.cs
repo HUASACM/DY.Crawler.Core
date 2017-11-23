@@ -21,17 +21,12 @@ namespace DY.Crawler.Core.Domains.Extensions
             var url = source.Url;
             return data_bag.MinValue
                            .to(data_bag.MaxValue)
-                           .Select(x => url.Replace(data_bag.Key, x.ToString()))
                            .Select(x =>
                                    {
-                                       return new CustomField()
-                                              {
-                                                  Name = "Url",
-                                                  Value = x
-                                              };
-                                   })
-                           .Select(x => new ResourceInfo().field(x))
-                           .Select(x => new DTask().source(x));
+                                       var task = new DTask() { Host = source.Host };
+                                       var uri = url.Replace(data_bag.Key, x.ToString());
+                                       return task.init(uri);
+                                   });
         }
     }
 }
