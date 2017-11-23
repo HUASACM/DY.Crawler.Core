@@ -19,9 +19,11 @@ namespace DY.Crawler.Domains
             resultdefs = new List<ResourceFieldDef>();
             results = new List<ResourceInfo>();
             sources = new List<ResourceInfo>();    
+            uris = new List<string>();
         }
 
         private IList<ResourceFieldDef> resultdefs { get; set; }
+        private IList<string> uris { get; set; }
         private IList<ResourceInfo> results { get; set; }
         private IList<ResourceInfo> sources { get; set; }
         public virtual Guid Identifier { get; set; }
@@ -30,8 +32,13 @@ namespace DY.Crawler.Domains
         public virtual Guid ProjectIdentifier { get; protected set; }
         public virtual DateTime RecordTime { get; set; }
         public virtual int Level { get; set; }
+        public virtual string Host { get; set; }
         public virtual Phase Phase { set; get; }
 
+        public virtual IEnumerable<string> Uris
+        {
+            get { return uris; }
+        }
 
         public virtual IEnumerable<ResourceFieldDef> ResultDefs
         {
@@ -48,6 +55,11 @@ namespace DY.Crawler.Domains
             get { return results; }
         }
 
+        public virtual DTask init(string url)
+        {
+            uris.Add(url);
+            return this;
+        }
         public virtual DTask source(ResourceInfo info)
         {
             info.task_by(Identifier);

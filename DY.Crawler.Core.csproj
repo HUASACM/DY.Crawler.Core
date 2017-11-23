@@ -65,7 +65,6 @@
     <Compile Include="Domains\DUrlTemplate.cs" />
     <Compile Include="Domains\Extensions\DUrlTemplateExtensions.cs" />
     <Compile Include="Domains\Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Domains\Extensions\ResourceInfoExtensions.cs" />
     <Compile Include="Domains\Extensions\StringExtensions.cs" />
     <Compile Include="Domains\TemplateDataBag.cs" />
     <Compile Include="main.cs" />

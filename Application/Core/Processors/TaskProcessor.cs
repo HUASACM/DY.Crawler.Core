@@ -26,7 +26,8 @@ namespace DY.Crawler.Core.Application.Core.Processors
         public void run(DTask task)
         {
             var fields = task
-                .Sources
+                .Uris
+                .Select(x => task.Host + x)
                 .Select(x => x.get_content(client))
                 .SelectMany(x => x.load(task.ResultDefs));
 

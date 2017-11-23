@@ -13,16 +13,13 @@ namespace DY.Crawler.Core.Speces.Processor
             {
                 subject = new TaskProcessor();
 
-                base_field = new CustomField() { FieldDef = 自定义任务字段.笔下文学链接, Name = "Url", Value = "http://m.bxwx9.org/modules/article/waplist.php?fullflag=1&page=1" };
-
-                source_info = new ResourceInfo();
-                source_info.field(base_field);
-
                 task = new DTask();
                 task.def(自定义任务字段.笔下文学书名);
                 task.def(自定义任务字段.笔下文学作者名);
                 task.def(自定义任务字段.笔下文学链接);
-                task.source(source_info);
+
+                task.Host = "http://m.bxwx9.org/";
+                task.init("modules/article/waplist.php?fullflag=1&page=1");
             };
 
         private Because of =
@@ -39,7 +36,5 @@ namespace DY.Crawler.Core.Speces.Processor
 
         private static TaskProcessor subject;
         private static DTask task;
-        private static ResourceInfo source_info;
-        private static CustomField base_field;
     }
 }
