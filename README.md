@@ -1,2 +1,70 @@
 # DY.Crawler.Core
 独立类库
+
+> 2017.11.23 更新
+
+
+
+#### 快速开始 
+
+``` c#
+// 直接根据url 获取内容。
+var url = "http://www.baidu.com";
+var client = new HttpClient();
+var content = url.get_content(client);
+Console.WriteLine(content);
+```
+
+
+
+``` c#
+// 自定义解析数据, 解析规则目前只支持XPath
+
+var url = "http://m.bxwx9.org/modules/article/waplist.php?fullflag=1&page=1";
+var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip };
+var client = new HttpClient(handler);
+var parse_rule = new ResourceFieldDef() { 
+  											Name = "书名", 
+  											AttributeName = "content", 
+  											Rule = new ParseRule() { 
+                                              Value = "/html/body/div[2]/table/tr/td[2]/div/a[1]" } 
+										}
+
+var book_name = url.get_content(client).load(new List<ResourceFieldDef>() {parse_rule});
+
+Console.WriteLine(book_name);
+```
+
+
+
+> 目前解析数据的设置稍显复杂，待重构。
+
+
+
+#### 关于类库
+
+> 此类库目前的目标并非是深度/广度非定向爬虫，而是自定义的定向爬虫。
+
+目前版本暂还不能实现在定向的基础上进行深度/广度爬取。
+
+
+
+#### TODO
+
+| 目标        | 状态   |
+| --------- | ---- |
+| 简化自定义解析数据 | 重构中  |
+| 加入多线程模型   | 计划中  |
+| 支持深度/广度爬取 | 计划中  |
+
+
+
+> 先简化目前的结构，让单步定向爬取变得更简洁，可连贯操作。
+
+
+
+#### About
+
+欢迎各位提出宝贵的意见/PR。
+
+> 个人知识及能力有限，代码实现或架构上有缺陷还请指正。不胜感激
