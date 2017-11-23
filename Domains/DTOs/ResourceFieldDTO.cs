@@ -4,7 +4,7 @@ namespace DY.Crawler.Core.Domains.DTOs
 {
     public class ResourceFieldDTO
     {
-        public ResourceFieldDef Def;
+        public DocumentNodeParseRule Def;
         public HtmlNodeCollection Nodes;
     }
 }

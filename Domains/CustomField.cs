@@ -13,6 +13,6 @@ namespace DY.Crawler.Domains
         public virtual Guid Identifier { get; set; }
         public virtual string Name { get; set; }
         public virtual string Value { get; set; }
-        public virtual ResourceFieldDef FieldDef { get; set; }
+        public virtual DocumentNodeParseRule FieldDef { get; set; }
     }
 }

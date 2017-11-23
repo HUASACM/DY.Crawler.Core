@@ -10,7 +10,7 @@ namespace DY.Crawler.Core.Domains.Extensions
 {
     public static class StringExtensions
     {
-        public static IEnumerable<ResourceInfo> load(this string source, IEnumerable<ResourceFieldDef> defs)
+        public static IEnumerable<ResourceInfo> load(this string source, IEnumerable<DocumentNodeParseRule> defs)
         {
             var dtos = new ResourceFieldDefAnalysis().on(source).parse(defs);
             var min_fields = dtos.Min(x => x.Nodes.Count);

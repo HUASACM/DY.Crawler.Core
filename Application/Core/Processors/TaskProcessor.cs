@@ -29,7 +29,7 @@ namespace DY.Crawler.Core.Application.Core.Processors
                 .Uris
                 .Select(x => task.Host + x)
                 .Select(x => x.get_content(client))
-                .SelectMany(x => x.load(task.ResultDefs));
+                .SelectMany(x => x.load(task.Rules));
 
             task.add_result_range(fields);
         }

@@ -85,7 +85,7 @@
     <Compile Include="Domains\Interfaces\Taskable.cs" />
     <Compile Include="Domains\Interfaces\Valueable.cs" />
     <Compile Include="Domains\ParseRule.cs" />
-    <Compile Include="Domains\ResourceFieldDef.cs" />
+    <Compile Include="Domains\DocumentNodeParseRule.cs" />
     <Compile Include="Domains\ResourceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Speces\Processor\ProjectProcessorSpeces.cs" />

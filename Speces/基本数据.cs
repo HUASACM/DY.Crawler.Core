@@ -11,8 +11,8 @@ namespace DY.Crawler.Core.Speces
 {
     public static class 自定义任务字段
     {
-        public static ResourceFieldDef 笔下文学书名 = new ResourceFieldDef() { Name = "书名", AttributeName = "content", Rule = new ParseRule() { Value = "/html/body/div[2]/table/tr/td[2]/div/a[1]" } };
-        public static ResourceFieldDef 笔下文学作者名 = new ResourceFieldDef() { Name = "作者名", AttributeName = "content", Rule = new ParseRule() { Value = "/html/body/div[2]/table/tr/td[2]/div/span[1]" } };
-        public static ResourceFieldDef 笔下文学链接 = new ResourceFieldDef() { Name = "链接", AttributeName = "href", Rule = new ParseRule() { Value = "/html/body/div[2]/table/tr/td[1]/a" } };
+        public static DocumentNodeParseRule 笔下文学书名 = new DocumentNodeParseRule() { Name = "书名", AttributeName = "content", RuleValue = "/html/body/div[2]/table/tr/td[2]/div/a[1]" };
+        public static DocumentNodeParseRule 笔下文学作者名 = new DocumentNodeParseRule() { Name = "作者名", AttributeName = "content", RuleValue = "/html/body/div[2]/table/tr/td[2]/div/span[1]" };
+        public static DocumentNodeParseRule 笔下文学链接 = new DocumentNodeParseRule() { Name = "链接", AttributeName = "href", RuleValue = "/html/body/div[2]/table/tr/td[1]/a" };
     }
 }

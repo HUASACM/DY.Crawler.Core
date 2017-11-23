@@ -16,13 +16,13 @@ namespace DY.Crawler.Domains
     {
         public DTask()
         {
-            resultdefs = new List<ResourceFieldDef>();
+            rules = new List<DocumentNodeParseRule>();
             results = new List<ResourceInfo>();
             sources = new List<ResourceInfo>();    
             uris = new List<string>();
         }
 
-        private IList<ResourceFieldDef> resultdefs { get; set; }
+        private IList<DocumentNodeParseRule> rules { get; set; }
         private IList<string> uris { get; set; }
         private IList<ResourceInfo> results { get; set; }
         private IList<ResourceInfo> sources { get; set; }
@@ -40,9 +40,9 @@ namespace DY.Crawler.Domains
             get { return uris; }
         }
 
-        public virtual IEnumerable<ResourceFieldDef> ResultDefs
+        public virtual IEnumerable<DocumentNodeParseRule> Rules
         {
-            get { return resultdefs; }
+            get { return rules; }
         }
 
         public virtual IEnumerable<ResourceInfo> Sources
@@ -74,9 +74,9 @@ namespace DY.Crawler.Domains
             return this;
         }
 
-        public virtual DTask def(ResourceFieldDef def)
+        public virtual DTask def(DocumentNodeParseRule def)
         {
-            resultdefs.Add(def);
+            rules.Add(def);
             return this;
         }
 

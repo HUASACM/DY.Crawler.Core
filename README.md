@@ -23,12 +23,11 @@ Console.WriteLine(content);
 var url = "http://m.bxwx9.org/modules/article/waplist.php?fullflag=1&page=1";
 var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip };
 var client = new HttpClient(handler);
-var parse_rule = new ResourceFieldDef() { 
-  											Name = "书名", 
-  											AttributeName = "content", 
-  											Rule = new ParseRule() { 
-                                              Value = "/html/body/div[2]/table/tr/td[2]/div/a[1]" } 
-										}
+var parse_rule = new DocumentNodeParseRule() { 
+  Name = "书名", // 自定义规则名称，可忽略
+  AttributeName = "content", // 待取元素名称(content表示 innerHTML)
+  RuleValue ="/html/body/div[2]/table/tr/td[2]/div/a[1]" // XPath路径
+}
 
 var book_name = url.get_content(client).load(new List<ResourceFieldDef>() {parse_rule});
 
@@ -37,7 +36,7 @@ Console.WriteLine(book_name);
 
 
 
-> 目前解析数据的设置稍显复杂，待重构。
+~~目前解析数据的设置稍显复杂，待重构。~~
 
 
 
@@ -53,7 +52,7 @@ Console.WriteLine(book_name);
 
 | 目标        | 状态   |
 | --------- | ---- |
-| 简化自定义解析数据 | 重构中  |
+| 简化自定义解析数据 | 已完成  |
 | 加入多线程模型   | 计划中  |
 | 支持深度/广度爬取 | 计划中  |
 

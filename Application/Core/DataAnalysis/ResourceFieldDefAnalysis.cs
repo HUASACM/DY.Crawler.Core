@@ -20,12 +20,12 @@ namespace DY.Crawler.Core.Application.Core.DataAnalysis
             return this;
         }
 
-        public IEnumerable<ResourceFieldDTO> parse(IEnumerable<ResourceFieldDef> data)
+        public IEnumerable<ResourceFieldDTO> parse(IEnumerable<DocumentNodeParseRule> data)
         {
             return data.Select(x => new ResourceFieldDTO
                                     {
                                         Def = x,
-                                        Nodes = document.DocumentNode.SelectNodes(x.Rule.Value),
+                                        Nodes = document.DocumentNode.SelectNodes(x.RuleValue),
                                     });
         }
     }
