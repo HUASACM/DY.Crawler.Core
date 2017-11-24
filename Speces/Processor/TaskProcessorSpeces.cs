@@ -1,7 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Security.Policy;
 using DY.Crawler.Core.Application.Core.Processors;
+using DY.Crawler.Core.Domains.Extensions;
 using DY.Crawler.Domains;
+using HtmlAgilityPack;
 using Machine.Specifications;
 
 namespace DY.Crawler.Core.Speces.Processor

@@ -68,9 +68,7 @@
     <Compile Include="Domains\Extensions\StringExtensions.cs" />
     <Compile Include="Domains\TemplateDataBag.cs" />
     <Compile Include="main.cs" />
-    <Compile Include="Domains\CustomCode.cs" />
     <Compile Include="Domains\CustomField.cs" />
-    <Compile Include="Domains\CustomFieldDef.cs" />
     <Compile Include="Domains\DProject.cs" />
     <Compile Include="Domains\DTask.cs" />
     <Compile Include="Domains\Enums\CustomType.cs" />
@@ -84,7 +82,6 @@
     <Compile Include="Domains\Interfaces\Recordable.cs" />
     <Compile Include="Domains\Interfaces\Taskable.cs" />
     <Compile Include="Domains\Interfaces\Valueable.cs" />
-    <Compile Include="Domains\ParseRule.cs" />
     <Compile Include="Domains\DocumentNodeParseRule.cs" />
     <Compile Include="Domains\ResourceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
