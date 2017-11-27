@@ -26,5 +26,10 @@ namespace DY.Crawler.Core.Domains.Extensions
         {
             return client.GetStringAsync(url).Result;
         }
+
+        public static List<KeyValuePair<string, string>> get_params(this IEnumerable<AccountData> source)
+        {
+            return source.Select(x => new KeyValuePair<string, string>(x.Name, x.Value)).ToList();
+        }
     }
 }

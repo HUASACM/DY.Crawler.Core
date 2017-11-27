@@ -34,6 +34,7 @@ namespace DY.Crawler.Domains
         public virtual int Level { get; set; }
         public virtual string Host { get; set; }
         public virtual Phase Phase { set; get; }
+        public virtual Account Account { get; set; }
 
         public virtual IEnumerable<string> Uris
         {
@@ -54,6 +55,7 @@ namespace DY.Crawler.Domains
         {
             get { return results; }
         }
+
 
         public virtual DTask init(string url)
         {
