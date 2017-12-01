@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Security.Policy;
 using DY.Crawler.Core.Application.Core.Processors;
-using DY.Crawler.Core.Domains.Extensions;
+using DY.Crawler.Core.Domains;
 using DY.Crawler.Domains;
-using HtmlAgilityPack;
 using Machine.Specifications;
 
 namespace DY.Crawler.Core.Speces.Processor
@@ -24,8 +19,7 @@ namespace DY.Crawler.Core.Speces.Processor
                 task.def(自定义任务字段.笔下文学作者名);
                 task.def(自定义任务字段.笔下文学链接);
 
-                task.Host = "http://m.bxwx9.org/";
-                task.init("modules/article/waplist.php?fullflag=1&page=1");
+                task.init(site);
             };
 
         private Because of =
@@ -42,5 +36,10 @@ namespace DY.Crawler.Core.Speces.Processor
 
         private static TaskProcessor subject;
         private static DTask task;
+        private static DSite site = new DSite()
+                                   {
+                                       Host = "http://m.bxwx9.org/",
+                                       Uri = "modules/article/waplist.php?fullflag=1&page=1",
+                                   };
     }
 }

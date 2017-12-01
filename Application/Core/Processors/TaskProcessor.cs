@@ -22,13 +22,12 @@ namespace DY.Crawler.Core.Application.Core.Processors
         }
         public void run(DTask task)
         {
-            var fields = task
-                .Uris
-                .Select(x => task.Host + x)
+            task
+                .Sites
+                .Select(x => x.Url)
                 .Select(x => x.get_content(client))
-                .SelectMany(x => x.load(task.Rules));
-
-            task.add_result_range(fields);
+                .SelectMany(x => x.load(task.Rules))
+                .each(x => task.result(x));
         }
     }
 }

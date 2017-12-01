@@ -68,6 +68,7 @@
     <Compile Include="Domains\Extensions\DUrlTemplateExtensions.cs" />
     <Compile Include="Domains\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Domains\Extensions\StringExtensions.cs" />
+    <Compile Include="Domains\DSite.cs" />
     <Compile Include="Domains\TemplateDataBag.cs" />
     <Compile Include="main.cs" />
     <Compile Include="Domains\CustomField.cs" />

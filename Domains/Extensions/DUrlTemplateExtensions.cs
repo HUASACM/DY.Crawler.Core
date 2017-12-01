@@ -23,9 +23,13 @@ namespace DY.Crawler.Core.Domains.Extensions
                            .to(data_bag.MaxValue)
                            .Select(x =>
                                    {
-                                       var task = new DTask() { Host = source.Host };
+                                       var task = new DTask();
                                        var uri = url.Replace(data_bag.Key, x.ToString());
-                                       return task.init(uri);
+                                       return task.init(new DSite()
+                                                        {
+                                                            Host = source.Host,
+                                                            Uri = uri,
+                                                        });
                                    });
         }
     }

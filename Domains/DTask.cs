@@ -18,37 +18,28 @@ namespace DY.Crawler.Domains
         {
             rules = new List<DocumentNodeParseRule>();
             results = new List<ResourceInfo>();
-            sources = new List<ResourceInfo>();    
-            uris = new List<string>();
+            sites = new List<DSite>();
         }
 
         private IList<DocumentNodeParseRule> rules { get; set; }
-        private IList<string> uris { get; set; }
+        private IList<DSite> sites { get; set; }
         private IList<ResourceInfo> results { get; set; }
-        private IList<ResourceInfo> sources { get; set; }
         public virtual Guid Identifier { get; set; }
         public virtual string Name { get; set; }
         public virtual Guid TaskIdentifier { get; protected set; }
         public virtual Guid ProjectIdentifier { get; protected set; }
         public virtual DateTime RecordTime { get; set; }
-        public virtual int Level { get; set; }
-        public virtual string Host { get; set; }
         public virtual Phase Phase { set; get; }
         public virtual Account Account { get; set; }
 
-        public virtual IEnumerable<string> Uris
+        public virtual IEnumerable<DSite> Sites
         {
-            get { return uris; }
+            get { return sites; }
         }
 
         public virtual IEnumerable<DocumentNodeParseRule> Rules
         {
             get { return rules; }
-        }
-
-        public virtual IEnumerable<ResourceInfo> Sources
-        {
-            get { return sources; }
         }
 
         public virtual IEnumerable<ResourceInfo> Results
@@ -57,15 +48,9 @@ namespace DY.Crawler.Domains
         }
 
 
-        public virtual DTask init(string url)
+        public virtual DTask init(DSite site)
         {
-            uris.Add(url);
-            return this;
-        }
-        public virtual DTask source(ResourceInfo info)
-        {
-            info.task_by(Identifier);
-            sources.Add(info);
+            sites.Add(site);
             return this;
         }
 
@@ -90,12 +75,6 @@ namespace DY.Crawler.Domains
         public virtual void project_by(Guid project_identifier)
         {
             ProjectIdentifier = project_identifier;
-        }
-
-        public DTask add_result_range(IEnumerable<ResourceInfo> list)
-        {
-            list.each(results.Add);
-            return this;
         }
     }
 }
