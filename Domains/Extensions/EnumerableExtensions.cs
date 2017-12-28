@@ -31,5 +31,30 @@ namespace DY.Crawler.Core.Domains.Extensions
         {
             return source.Select(x => new KeyValuePair<string, string>(x.Name, x.Value)).ToList();
         }
+
+        public static IEnumerable<T> Distinct<T, V>(this IEnumerable<T> source, Func<T, V> key_selector)
+        {
+            return source.Distinct(new CommonEqualityComparer<T, V>(key_selector));
+        }
+    }
+
+    public class CommonEqualityComparer<T, V> : IEqualityComparer<T>
+    {
+        private Func<T, V> key_selector;
+
+        public CommonEqualityComparer(Func<T, V> key_selector)
+        {
+            this.key_selector = key_selector;
+        }
+
+        public bool Equals(T x, T y)
+        {
+            return EqualityComparer<V>.Default.Equals(key_selector(x), key_selector(y));
+        }
+
+        public int GetHashCode(T obj)
+        {
+            return EqualityComparer<V>.Default.GetHashCode(key_selector(obj));
+        }
     }
 }
