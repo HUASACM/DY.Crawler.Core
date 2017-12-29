@@ -24,7 +24,14 @@ namespace DY.Crawler.Core.Domains.Extensions
 
         public static string get_content(this string url, HttpClient client)
         {
-            return client.GetStringAsync(url).Result;
+            try
+            {
+                return client.GetStringAsync(url).Result;
+            }
+            catch (Exception e)
+            {
+                return string.Empty;
+            }
         }
 
         public static List<KeyValuePair<string, string>> get_params(this IEnumerable<AccountData> source)
